@@ -1,10 +1,3 @@
-## ⚠️ This Repository Has Been Migrated
-
-Development for this project has moved to a new, clean repository. All future updates and commits will be pushed to the new location.
-
-### **Please see the new, active repository here:**
-### [https://github.com/nimit-pasricha/flask-react-forum](https://github.com/nimit-pasricha/flask-react-forum)
-
 # Full-Stack Containerized Web Forum with CI/CD
 
 This is a full-stack web forum application, originally a frontend-only university project, that I have significantly extended and re-engineered. It features a robust Flask RESTful API, a dynamic React frontend, and a complete DevOps workflow including containerization and an automated CI/CD pipeline.
