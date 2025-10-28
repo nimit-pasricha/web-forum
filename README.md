@@ -7,11 +7,21 @@ The application is fully containerized using Docker and orchestrated with Docker
 ## ✨ Features
 
 -   **Containerized Environment:** The entire application (backend, frontend, database) is orchestrated with Docker Compose for a reliable, isolated, and portable development and production setup.
+
 -   **CI/CD Pipeline:** An automated GitHub Actions workflow builds and publishes production-ready backend and frontend images to Docker Hub.
+
 -   **User Authentication:** Secure user registration and login with JWT (JSON Web Tokens) for session management via `HttpOnly` cookies.
+
 -   **RESTful API:** A well-structured Flask API built from scratch, featuring Blueprints and full CRUD functionality for posts and chatrooms.
+
 -   **Production-Ready Proxy:** An Nginx reverse proxy serves the static React files and intelligently routes `/api` requests to the Flask backend, eliminating CORS issues in production.
+
+-   **Centralized State Management:** React's Context API is used for efficient, global management of user authentication status across the frontend.
+
+-   **Responsive UI:** Built with React Bootstrap for a clean and responsive user interface.
+
 -   **Multiple Chatrooms:** Users can browse and post messages in a variety of predefined chatrooms.
+
 -   **Message Management:** Authenticated users can create new posts and delete their own existing posts.
 
 ## 🚀 Technologies Used
