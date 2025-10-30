@@ -3,10 +3,11 @@ from __future__ import annotations
 import datetime
 from typing import List
 
-from extensions import db
 from sqlalchemy import ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from werkzeug.security import check_password_hash, generate_password_hash
+
+from extensions import db
 
 
 class User(db.Model):

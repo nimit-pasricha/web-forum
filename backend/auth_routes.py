@@ -1,7 +1,6 @@
 import re
 from datetime import timedelta
 
-from extensions import db
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import (
     create_access_token,
@@ -10,8 +9,10 @@ from flask_jwt_extended import (
     set_access_cookies,
     unset_jwt_cookies,
 )
-from models import User
 from sqlalchemy import select
+
+from extensions import db
+from models import User
 
 auth_bp = Blueprint("auth_bp", __name__)
 
