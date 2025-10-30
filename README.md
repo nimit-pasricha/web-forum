@@ -1,46 +1,44 @@
-# Full-Stack Containerized Web Forum with CI/CD
+# 🧠 Full-Stack Web Forum
 
-This is a full-stack web forum application, originally a frontend-only university project, that I have significantly extended and re-engineered. It features a robust Flask RESTful API, a dynamic React frontend, and a complete DevOps workflow including containerization and an automated CI/CD pipeline.
+is a dynamic, full-stack web forum application developed with a Flask backend and a React frontend. It allows users to register, log in securely, create and delete posts in different chatrooms, and engage in real-time discussions.
 
-The application is fully containerized using Docker and orchestrated with Docker Compose, allowing for a reproducible, one-command setup. The CI/CD pipeline automatically builds and publishes the production-ready Docker images to Docker Hub on every push to the `main` branch.
+This project was initially a frontend-only university assignment, which I have significantly extended and transformed into a complete application by building a robust and secure backend API from scratch and refining the frontend with an improved, modern UI.
 
-## ✨ Features
 
--   **Containerized Environment:** The entire application (backend, frontend, database) is orchestrated with Docker Compose for a reliable, isolated, and portable development and production setup.
+## ✨ Key Features
 
--   **CI/CD Pipeline:** An automated GitHub Actions workflow builds and publishes production-ready backend and frontend images to Docker Hub.
+- **Full-Stack Architecture:** Flask backend + React frontend designed with a clear separation of concerns and clean API integration.
 
--   **User Authentication:** Secure user registration and login with JWT (JSON Web Tokens) for session management via `HttpOnly` cookies.
+- **RESTful API:** Built from scratch with Flask and SQLAlchemy, using Blueprints and providing complete CRUD functionality for posts and chatrooms.
 
--   **RESTful API:** A well-structured Flask API built from scratch, featuring Blueprints and full CRUD functionality for posts and chatrooms.
+- **Secure Authentication:** Implements JWT-based authentication with `HttpOnly`, `SameSite` cookies to protect against XSS and CSRF vulnerabilities.
 
--   **Production-Ready Proxy:** An Nginx reverse proxy serves the static React files and intelligently routes `/api` requests to the Flask backend, eliminating CORS issues in production.
+- **Dynamic Frontend:** Developed a responsive React single-page application using React Router, Context API, and React Bootstrap for cohesive and mobile-friendly UI/UX.
 
--   **Centralized State Management:** React's Context API is used for efficient, global management of user authentication status across the frontend.
+- **Chatroom System:** Users can browse multiple chatrooms, post messages, and delete their own posts.
 
--   **Responsive UI:** Built with React Bootstrap for a clean and responsive user interface.
+- **Scalable Database Layer:** PostgreSQL database with SQLAlchemy ORM models for clean data management and efficient querying.
 
--   **Multiple Chatrooms:** Users can browse and post messages in a variety of predefined chatrooms.
+- **Containerized Environment:** Dockerized the frontend, backend, and PostgreSQL database as separate services, orchestrated via Docker Compose for a consistent and reproducible multi-container setup.  
 
--   **Message Management:** Authenticated users can create new posts and delete their own existing posts.
-
-## 🚀 Technologies Used
-
-| Category | Technology |
-| :--- | :--- |
-| **DevOps / Deployment** | **Docker, Docker Compose, GitHub Actions (CI/CD), Nginx** |
-| **Backend** | **Python, Flask, PostgreSQL, SQLAlchemy, Flask-JWT-Extended, Werkzeug** |
-| **Frontend** | **React.js, React Router, Vite, Bootstrap, JavaScript (ES6+)** |
+- **CI/CD Pipeline:** An automated GitHub Actions workflow builds and publishes production-ready backend and frontend images to Docker Hub.
 
 ---
 
-## 🏗️ Architecture & Deployment
+## 🧩 Technologies
 
-This project is a multi-container application orchestrated by Docker Compose. This design separates concerns, improves scalability, and replicates a professional production environment.
+| Category | Technology |
+| :--- | :--- |
+| **Frontend** | React.js, React Router, React Bootstrap, Vite, JavaScript (ES6+) |
+| **Backend** | Python, Flask, SQLAlchemy, PostgreSQL, Flask-JWT-Extended |
+| **Development & Deployment** | Docker, Docker Compose, GitHub Actions (CI/CD), Nginx |
 
-### Application Architecture
+---
 
-The `frontend` container (Nginx) acts as the single "entrypoint" for all user traffic. It serves the static React files and acts as a reverse proxy, forwarding all API-bound traffic to the `backend` container. This eliminates CORS issues and securely isolates the backend from direct public access.
+## 🏗️ Application Architecture
+
+This project follows a classic three-tier architecture with clear modularity between frontend, backend, and database layers.
+
 
 ```
  [ User Browser ]
@@ -61,70 +59,47 @@ The `frontend` container (Nginx) acts as the single "entrypoint" for all user tr
              [ Postgres Container (db) ]
 ```
 
-### Automated CI/CD Pipeline
+- The **frontend** is served via Nginx, which also routes all `/api` traffic to the Flask backend, simplifying client–server communication and removing CORS complexity.
+- The **backend** exposes a versioned REST API (`/api/v1/...`) to handle authentication, posts, and chatroom data.
+- The **database** persists user accounts, messages, and chatroom metadata.
 
-This repository uses a CI/CD pipeline powered by GitHub Actions. The workflow is triggered on every push to the `main` branch.
+---
 
-Workflow:
-`[ Git Push to main ]` → `[ GitHub Actions Trigger ]` → `[ Login to Docker Hub ]` → `[ Build & Push 'backend' Image ]` → `[ Build & Push 'frontend' Image ]`
+## 🔒 Authentication & Security
 
-This process automates the creation of production-ready artifacts.
+- JWT-based authentication with tokens stored in `HttpOnly`, `SameSite` cookies.  
+- Backend input validation and request authorization via decorators and middleware.  
+- Secure session management to prevent XSS and CSRF attacks.  
 
-As long as a server has `docker-compose.yml` and `.env`, it can can pull these pre-built images from Docker Hub, and start serving them, enabling a fast, pull-based deployment that doesn't require building from source.
+---
 
-## 🛠️ Development Setup
+## ⚙️ Development & Deployment
 
-### 1. Clone the Repository
+While the project is designed for **software engineering clarity**, it’s also **production-ready**:
 
-```bash
-git clone [https://github.com/nimit-pasricha/flask-react-forum](https://github.com/nimit-pasricha/flask-react-forum)
-cd flask-react-forum
-```
+- **Containerized Setup:** Docker Compose orchestrates the frontend, backend, and database for an easy, one-command setup.  
+- **Continuous Integration / Deployment:** A GitHub Actions workflow automatically builds, tests, and publishes Docker images for both services to Docker Hub on pushes to `main`.  
+- **Reverse Proxy Configuration:** Nginx serves static assets and routes API requests, simplifying deployment and ensuring consistent behavior in production.
 
-### 2. Configure Environment Variables
-
-```bash
-# In the ./backend/ directory, create a .env file
-touch ./backend/.env
-```
-
-Edit `./backend/.env` and add your secret keys:
+To start the application locally:
 
 ```bash
-# You can generate secret keys with: python3 -c 'import secrets; print(secrets.token_hex(32))'
-SECRET_KEY='your_flask_secret_key_here' 
-JWT_SECRET_KEY='your_jwt_secret_key_here'
-```
-
-### 3. Run the Application
-
-From the project's root directory, run:
-
-```bash
+git clone https://github.com/nimit-pasricha/web-forum
+cd web-forum
 docker-compose up --build -d
 ```
 
-### 4. Initialize the Database
-
-The containers are running, but the database is empty. In a new terminal, run the following commands to initialize the tables and seed the chatrooms:
+Initialize the database:
 
 ```bash
 docker-compose exec backend flask init-db
 docker-compose exec backend flask seed-db
 ```
 
-**The application is now running:**
-- Frontend: `http://localhost`
+The application is now running:
+- Frontend: [http://localhost:80](http://localhost:80)
+- Backend APi: `http://localhost:80/api/v1/...`
 
-- Backend API: `http://localhost/api/...` (via the Nginx proxy)
+## 🧑‍💻 Local Development (Non-Docker)
 
-## 🔒 Authentication & Proxy Details
-
-- **Production (Docker):** An Nginx container acts as a reverse proxy. It serves the static React app on port 80 and routes all requests to `/api/...` to the Flask `backend` service, eliminating all CORS issues.
-
-- **Local Development (Legacy):** The project also supports a local, non-containerized setup. In this mode, a Vite proxy (`vite.config.js`) is used to resolve CORS between the frontend (`localhost:5173`) and the backend (`localhost:5000`).
-
-</details>
-
-## 📄 License
-This project is licensed under the terms of the MIT License.
+For lightweight local testing, you can run the frontend and backend separately. A Vite proxy handles CORS between localhost:5173 (frontend) and localhost:5000 (backend).
