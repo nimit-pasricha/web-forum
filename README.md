@@ -5,7 +5,7 @@ is a dynamic, full-stack web forum application developed with a Flask backend an
 This project was initially a frontend-only university assignment, which I have significantly extended and transformed into a complete application by building a robust and secure backend API from scratch and refining the frontend with an improved, modern UI.
 
 
-## ✨ Key Features
+## ✨ Features
 
 - **Full-Stack Architecture:** Flask backend + React frontend designed with a clear separation of concerns and clean API integration.
 
@@ -73,7 +73,7 @@ This project follows a classic three-tier architecture with clear modularity bet
 
 ---
 
-## ⚙️ Development & Deployment
+## 🛠️ Development & Deployment
 
 While the project is designed for **software engineering clarity**, it’s also **production-ready**:
 
@@ -100,6 +100,6 @@ The application is now running:
 - Frontend: [http://localhost:80](http://localhost:80)
 - Backend APi: `http://localhost:80/api/v1/...`
 
-## 🧑‍💻 Local Development (Non-Docker)
+## 💻 Local Development (Non-Docker)
 
 For lightweight local testing, you can run the frontend and backend separately. A Vite proxy handles CORS between localhost:5173 (frontend) and localhost:5000 (backend).

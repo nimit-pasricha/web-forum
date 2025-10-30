@@ -16,7 +16,7 @@ services:
   backend:
     image: pasrichanimit/web-forum-backend:latest
     env_file:
-      - .env
+      - ./backend/.env
     build:
       context: ./backend
       dockerfile: Dockerfile
