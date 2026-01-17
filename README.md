@@ -5,7 +5,7 @@ A dynamic, full-stack web forum application developed with a Flask backend and a
 This project was initially a frontend-only university assignment, which I have significantly extended and transformed into a complete application by building a robust and secure backend API from scratch and refining the frontend with an improved, modern UI.
 
 
-## ✨ Features
+## Features
 
 - **Full-Stack Architecture:** Flask backend + React frontend designed with a clear separation of concerns and clean API integration.
 
@@ -25,7 +25,7 @@ This project was initially a frontend-only university assignment, which I have s
 
 ---
 
-## 🚀 Technologies
+## Technologies
 
 | Category | Technology |
 | :--- | :--- |
@@ -35,9 +35,9 @@ This project was initially a frontend-only university assignment, which I have s
 
 ---
 
-## 🏗️ Application Architecture
+## Application Architecture
 
-This project follows a classic three-tier architecture with clear modularity between frontend, backend, and database layers.
+This project follows a three-tier architecture with clear modularity between frontend, backend, and database layers.
 
 
 ```
@@ -65,7 +65,7 @@ This project follows a classic three-tier architecture with clear modularity bet
 
 ---
 
-## 🔒 Authentication & Security
+## Authentication & Security
 
 - JWT-based authentication with tokens stored in `HttpOnly`, `SameSite` cookies.  
 - Backend input validation and request authorization via decorators and middleware.  
@@ -73,7 +73,7 @@ This project follows a classic three-tier architecture with clear modularity bet
 
 ---
 
-## 🛠️ Development & Deployment
+## Development & Deployment
 
 While the project is designed for **software engineering clarity**, it’s also **production-ready**:
 
