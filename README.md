@@ -1,4 +1,4 @@
-# Full-Stack Web Forum
+# Web Forum
 
 A dynamic, full-stack web forum application developed with a Flask backend and a React frontend. It allows users to register, log in securely, create and delete posts in different chatrooms, and engage in real-time discussions.
 
