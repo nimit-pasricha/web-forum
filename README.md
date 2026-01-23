@@ -2,7 +2,7 @@
 
 A dynamic, full-stack web forum application developed with a Flask backend and a React frontend. It allows users to register, log in securely, create and delete posts in different chatrooms, and engage in real-time discussions.
 
-This project was initially a frontend-only university assignment, which I have significantly extended and transformed into a complete application by building a robust and secure backend API from scratch and refining the frontend with an improved, modern UI.
+This project was initially a frontend-only university assignment, which I have significantly extended and transformed into a complete application by building a robust and secure backend API from scratch and refining the frontend with an improved, modern UI for use by Informatics Skunkworks.
 
 
 ## Features
